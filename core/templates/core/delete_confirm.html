@@ -1,0 +1,6 @@
+<h2>Deletar {{ obj }} ?</h2>
+
+<form action="{% url 'core_pessoa_delete' obj.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+</form>

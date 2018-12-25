@@ -1,0 +1,19 @@
+<h2>Movimento Mensalistas</h2>
+
+<ul>
+    {% for mes in mensal  %}
+        <li>
+            <a href="{% url 'core_update_movmensal' mes.id %}">
+                {{ mes.dt_pgmt }} - {{ mes.total }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'core_add_movmensal' %}" method="post">
+    {% csrf_token %}
+    
+    {{ form }}
+    
+    <button type="submit">Cadastrar</button>
+</form>

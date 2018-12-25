@@ -1,0 +1,17 @@
+<h2>Clientes Rotativos</h2>
+
+<ul>
+    {% for rotat in mov_rotat %}
+        <li>
+            <a href="{% url 'core_update_rotativo' rotat.id %}">{{ rotat.checkin }} --- {{rotat.veiculo.placa}} --- {{rotat.total}}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'core_add_rotat' %}" method="post">
+    {% csrf_token %}
+    
+    {{ form }}
+
+    <button type="submit">Cadastrar</button>
+</form>

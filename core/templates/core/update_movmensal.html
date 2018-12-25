@@ -1,0 +1,9 @@
+<h2>Update Movimento Mensal: {{ movmensal }}</h2>
+
+<form action="{% url 'core_update_movmensal' movmensal.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Alterar</button>
+</form>
+
+<a href="{% url 'core_delete_movmensal' movmensal.id %}">Deletar</a>

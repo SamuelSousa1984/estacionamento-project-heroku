@@ -1,0 +1,19 @@
+<h2>Mensalistas</h2>
+
+<ul>
+    {% for mensalista in mensalistas %}
+        <li>
+            <a href="{% url 'core_update_mensal' mensalista.id %}">
+                {{ mensalista.cliente }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'core_add_mensalista' %}" method="post">
+    {% csrf_token %}
+
+    {{ form }}
+
+    <button type="submit">Cadastrar</button>
+</form>
