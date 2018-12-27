@@ -1,2 +1,6 @@
 venv
 .vscode
+.idea
+*.sqlite3
+*pyc
+.DS_Store

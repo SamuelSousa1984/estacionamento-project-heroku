@@ -1,0 +1,1 @@
+web: gunicorn Estacionamento.wsgi --log-file -
