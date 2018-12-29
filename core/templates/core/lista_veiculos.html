@@ -1,17 +1,75 @@
-<h2>Lista Veiculos</h2>
+{% extends "base.html" %}
 
-<ul>
-    {% for veiculo in veiculos %}
-        <li>
-            <a href="{% url 'core_veiculo_update' veiculo.id %}"> {{ veiculo }}</a>
+{% load bootstrap %}
+
+{% block menu %}
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="{% url 'core_home' %}">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Servicos</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">Pessoas</a>
+            <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veiculos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'core_mensalistas' %}">Mensalistas</a>
+            <a class="dropdown-item" href="{% url 'core_mov_rotat' %}">Movimento Rotativo</a>
+            <a class="dropdown-item" href="{% url 'core_mov_mensal' %}">Movimento Mensalistas</a>
+        </div>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Ola {{ user }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
-    {% endfor %}
-</ul>
+    {% endif %}
+    </ul>
+{% endblock %}
 
-<form action="{% url 'core_add_veiculos' %}" method="post">
-    {% csrf_token %}
+{% block main %}
 
-    {{ form.as_p }}
+    <div class="row">
+        <div class="col-6">
+            <form action="{% url 'core_add_veiculos' %}" method="post">
+                {% csrf_token %}
+            
+                {{ form|bootstrap }}
+            
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <h2>Lista Veiculos</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Proprietario</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Placa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for veiculo in veiculos %}
+                    <tr>
+                    <th scope="row">{{veiculo.id}}</th>
+                    <td>{{veiculo.propietario}}</td>
+                    <td>{{veiculo.marca}}</td>
+                    <td>{{veiculo.placa}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+        </div>
+    </div>
 
-    <button type="submit">Cadastrar</button>
-</form>
+{% endblock %}

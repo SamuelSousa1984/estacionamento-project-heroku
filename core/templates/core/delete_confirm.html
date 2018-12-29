@@ -1,6 +1,16 @@
-<h2>Deletar {{ obj }} ?</h2>
+{% extends "base.html" %}
 
-<form action="{% url 'core_pessoa_delete' obj.id %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Deletar</button>
-</form>
+{% block main %}
+
+    <div class="row">
+        <div class="col">
+            <h2>Deletar {{ obj }} ?</h2>
+            
+            <form action="{% url 'core_pessoa_delete' obj.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Deletar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,9 +1,43 @@
-<h2>Update Cliente Mensalista: {{ mensalista }}</h2>
+{% extends "base.html" %}
 
-<form action="{% url 'core_update_mensal' mensalista.id %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Alterar</button>
-</form>
+{% load bootstrap %}
 
-<a href="{% url 'core_delete_mensal' mensalista.id %}">Deletar</a>
+{% block menu %}
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'core_home' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">Serviços</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">Pessoas</a>
+                <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veiculos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'core_mensalistas' %}">Mensalistas</a>
+                <a class="dropdown-item" href="{% url 'core_mov_rotat' %}">Movimento Rotativo</a>
+                <a class="dropdown-item" href="{% url 'core_mov_mensal' %}">Movimento Mensalistas</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Update Cliente Mensalista: {{ mensalista }}</h2>
+            
+            <form action="{% url 'core_update_mensal' mensalista.id %}" method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-primary">Alterar</button>
+                <a href="{% url 'core_delete_mensal' mensalista.id %}" class="btn btn-danger">Deletar</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

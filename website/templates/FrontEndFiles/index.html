@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<title>Estacionamento 24 horas - Serviços</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Estacionamento 24 horas - Empresa modelo">
+	<meta name="keywords" content="Estacionamento, 24 horas, carros, motos, fácil acesso, serviços">
+	<meta name="author" content="Nome da Empresa">
+	<meta name="robots" content="index, follow">
+	<link rel="stylesheet" href="CSS3/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<header>
+		<img src="{% static 'img/logo.png' %}" alt="Estacionamento 24 horas logo" width="100" height="100" id="logo">
+		<nav>
+			<a href="#" class="menu-icon"></a>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="serviços.html">Serviços</a></li>
+					<li><a href="sobre.html">Sobre</a></li>
+					<li><a href="planos.html">Planos</a></li>
+					<li><a href="contatos.html">Contatos</a></li>
+				</ul>
+		</nav>
+		<p id="Slogan">Estacionamento 24 horas</p>
+		<p>Slogan da Empresa Aqui</p>
+		
+	</header>
+
+	<main>
+		<div ng-controller="myCtrl" class="time">
+			{{TheTime}}
+		</div>
+		<!--Seção de promoções-->
+		<section>
+			<h2>Promoções</h2>
+			<div id="prom1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+			<br>
+			<div id="prom2">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+		</section>
+		<hr>
+		<!--Seção para conteudos gerais-->
+		<section>
+			<h2>Gerais</h2>
+			<div id="gerais1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+			<br>
+			<div id="gerais2">
+				<img src="{% static 'img/parking.png' %}" width="100" height="200" alt="Imagem geral">
+			</div>
+			<br>
+			<div id="gerais3">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+		</section>
+		<hr>
+		<!--Seção de depoimentos-->
+		<section>
+			<h2>Depoimentos</h2>
+			<div id="depoimentos1">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+			<br>
+			<div id="depoimentos2">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dolor sit amet tortor malesuada dignissim auctor ac libero. Vivamus laoreet, odio non condimentum lobortis, leo enim accumsan nunc, in sagittis ante massa quis risus. Phasellus sodales libero sed lacus venenatis, a ultrices eros luctus. Fusce sit amet porttitor felis, vitae volutpat ligula. In sagittis, augue non vulputate feugiat, odio lectus dapibus tortor, vitae finibus lacus nisi et nibh. Ut ornare est eget maximus finibus. Suspendisse sollicitudin enim risus, eget interdum massa ultricies a.
+			</div>
+		</section>
+	</main>
+	<footer>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="serviços.html">Serviços</a></li>
+				<li><a href="sobre.html">Sobre</a></li>
+				<li><a href="planos.html">Planos</a></li>
+				<li><a href="contatos.html">Contatos</a></li>
+			</ul>
+		</nav>
+		<section id="copyright">
+			<h2>Direitos autorais</h2>
+			<p>Copyright - Todos os direitos reservados | Desenvolvido por Samuel Sousa Pereira</p>
+		</section>
+	</footer>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope, $interval){
+			$scope.TheTime = new Date().toLocaleTimeString();
+			$interval(function () {
+				$scope.TheTime  = new Date().toLocaleTimeString();
+			}, 1000);
+		});
+	</script>
+</body>
+</html>

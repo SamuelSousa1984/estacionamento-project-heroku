@@ -1,19 +1,77 @@
-<h2>Movimento Mensalistas</h2>
+{% extends "base.html" %}
 
-<ul>
-    {% for mes in mensal  %}
-        <li>
-            <a href="{% url 'core_update_movmensal' mes.id %}">
-                {{ mes.dt_pgmt }} - {{ mes.total }}
-            </a>
+{% load bootstrap %}
+
+{% block menu %}
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link active" href="{% url 'core_home' %}">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Servicos</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'core_lista_pessoas' %}">Pessoas</a>
+            <a class="dropdown-item" href="{% url 'core_lista_veiculos' %}">Veiculos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'core_mensalistas' %}">Mensalistas</a>
+            <a class="dropdown-item" href="{% url 'core_mov_rotat' %}">Movimento Rotativo</a>
+            <a class="dropdown-item" href="{% url 'core_mov_mensal' %}">Movimento Mensalistas</a>
+        </div>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link disabled" href="#">Ola {{ user }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
-    {% endfor %}
-</ul>
+    {% endif %}
+    </ul>
+{% endblock %}
+{% block main %}
 
-<form action="{% url 'core_add_movmensal' %}" method="post">
-    {% csrf_token %}
-    
-    {{ form }}
-    
-    <button type="submit">Cadastrar</button>
-</form>
+<div class="row">
+    <div class="col-12">
+        <h2>Movimento Mensalistas</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <form action="{% url 'core_add_movmensal' %}" method="post">
+            {% csrf_token %}
+        
+            {{ form|bootstrap }}
+        
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+    <div class="col-6">
+        <h2>Lista Veiculos</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Data Pagamento</th>
+                <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mes in mensal %}
+                <tr>
+                <th scope="row">{{mes.id}}</th>
+                <td>{{mes.mensalista}}</td>
+                <td>{{mes.dt_pgmt}}</td>
+                <td>R$ {{mes.total}}</td>
+                </tr>
+                {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

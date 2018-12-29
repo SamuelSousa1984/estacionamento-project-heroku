@@ -54,5 +54,6 @@ urlpatterns = [
     re_path('^movmensal/$', mov_mensal, name='core_mov_mensal'),
     re_path('^addmovmensal/$', add_movmensal, name='core_add_movmensal'),
     re_path('^update_movmensal/(?P<id>\d+)/$', update_movmensal, name='core_update_movmensal'),
-    re_path('^delete_movmensal/(?P<id>\d+)/$', delete_movmensal, name='core_delete_movmensal')
+    re_path('^delete_movmensal/(?P<id>\d+)/$', delete_movmensal, name='core_delete_movmensal'),
+    
 ]
