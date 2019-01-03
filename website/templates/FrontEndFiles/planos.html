@@ -18,11 +18,11 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="serviços.html">Serviços</a></li>
-			<li><a href="sobre.html">Sobre</a></li>
-			<li><a href="planos.html">Planos</a></li>
-			<li><a href="contatos.html">Contatos</a></li>
+			<li><a href="{% url 'website_home' %}">Home</a></li>
+			<li><a href="{% url 'website_servico' %}">Serviços</a></li>
+			<li><a href="{% url 'website_sobre' %}">Sobre</a></li>
+			<li><a href="{% url 'website_planos' %}">Planos</a></li>
+			<li><a href="{% url 'website_contato' %}">Contatos</a></li>
 		</ul>
 	</nav>
 
