@@ -68,7 +68,7 @@
                     {% for rotat in mov_rotat %}
                     <tr>
                     <th scope="row">{{rotat.id}}</th>
-                    <td>{{rotat.veiculo}}</td>
+                    <td><a href="{% url 'core_update_rotativo' rotat.id %}">{{rotat.veiculo}}</a></td>
                     <td>{{rotat.checkin}}</td>
                     <td>{{rotat.checkout}}</td>
                     <td>R$ {{rotat.total}}</td>

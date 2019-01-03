@@ -66,7 +66,7 @@
                 {% for mes in mensal %}
                 <tr>
                 <th scope="row">{{mes.id}}</th>
-                <td>{{mes.mensalista}}</td>
+                <td><a href="{% url 'core_update_movmensal' mes.id %}">{{mes.mensalista}}</a></td>
                 <td>{{mes.dt_pgmt}}</td>
                 <td>R$ {{mes.total}}</td>
                 </tr>

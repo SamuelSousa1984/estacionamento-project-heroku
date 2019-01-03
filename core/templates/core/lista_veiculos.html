@@ -62,7 +62,7 @@
                     {% for veiculo in veiculos %}
                     <tr>
                     <th scope="row">{{veiculo.id}}</th>
-                    <td>{{veiculo.propietario}}</td>
+                    <td><a href="{% url 'core_veiculo_update' veiculo.id %}">{{veiculo.propietario}}</a></td>
                     <td>{{veiculo.marca}}</td>
                     <td>{{veiculo.placa}}</td>
                     </tr>

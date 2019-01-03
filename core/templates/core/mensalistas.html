@@ -68,7 +68,7 @@
                     {% for mensalista in mensalistas %}
                     <tr>
                     <th scope="row">{{mensalista.id}}</th>
-                    <td>{{mensalista.cliente}}</td>
+                    <td><a href="{% url 'core_update_mensal' mensalista.id %}">{{mensalista.cliente}}</a></td>
                     <td>{{mensalista.veiculo}}</td>
                     <td>{{mensalista.inicio}}</td>
                     </tr>
