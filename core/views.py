@@ -11,8 +11,7 @@ from .forms import (PessoaForm, VeiculoForm, RotativoForm, MensalistaForm,
 #Configurando minhas views
 @login_required
 def home(request):
-    context = {'mensagem': 'Ola mundo!'}
-    return render(request, 'core/index.html', context)
+    return render(request, 'core/index.html')
 
 
 @login_required

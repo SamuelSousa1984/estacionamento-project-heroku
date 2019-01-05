@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from core import templates
 
 
 def index(request):
@@ -19,3 +21,8 @@ def sobre(request):
 
 def servico(request):
     return render(request, 'FrontEndFiles/serviços.html')
+
+
+@login_required
+def sistema(request):
+    return render(request, 'core/index.html')
