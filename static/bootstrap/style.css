@@ -1,0 +1,13 @@
+.row-space {
+    margin-top: 25px;
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
