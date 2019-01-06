@@ -1,0 +1,16 @@
+<table class="table table-light">
+    <tr>
+        <td>id</td>
+        <td>Nome</td>
+        <td>Endereco</td>
+        <td>Telefone</td>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.endereco }}</td>
+        <td>{{ cliente.telefone }}</td>
+    </tr>
+    {% endfor %}
+</table>

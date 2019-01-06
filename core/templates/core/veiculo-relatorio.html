@@ -1,0 +1,16 @@
+<table class="table table-light">
+    <tr>
+        <td>id</td>
+        <td>Cliente</td>
+        <td>Marca</td>
+        <td>Placa</td>
+    </tr>
+    {% for veiculo in veiculos %}
+        <tr>
+            <td>{{ veiculo.id }}</td>
+            <td>{{ veiculo.propietario }}</td>
+            <td>{{ veiculo.marca }}</td>
+            <td>{{ veiculo.placa }}</td>
+        </tr>
+    {% endfor %}
+</table>

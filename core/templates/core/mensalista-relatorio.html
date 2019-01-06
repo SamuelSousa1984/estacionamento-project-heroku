@@ -1,0 +1,18 @@
+<table class="table table-light">
+    <tr>
+        <td>id</td>
+        <td>Cliente</td>
+        <td>Veiculo</td>
+        <td>Data Inicio</td>
+        <td>Valor</td>
+    </tr>
+    {% for mensalista in mensalistas %}
+    <tr>
+        <td>{{ mensalista.id }}</td>
+        <td>{{ mensalista.cliente }}</td>
+        <td>{{ mensalista.veiculo }}</td>
+        <td>{{ mensalista.inicio }}</td>
+        <td>{{ mensalista.valor_mes }}</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,17 @@
+<table class="table table-light">
+    <tr>
+        <td>id</td>
+        <td>Cliente</td>
+        <td>Data de Pagamento</td>
+        <td>Valor Total</td>
+    </tr>
+    {% for mensal in movmensal %}
+        <tr>
+            <td>{{ mensal.id }}</td>
+            <td>{{ mensal.mensalista }}</td>
+            <td>{{ mensal.dt_pgmt }}</td>
+            <td>{{ mensal.total }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

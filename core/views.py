@@ -222,3 +222,82 @@ def delete_movmensal(request, id):
         return redirect('core_mov_mensal')
     else:
         return render(request, 'core/delete_confirm.html', {'obj': movmensal})
+
+
+from django.http import HttpResponse
+from django.template.loader import get_template
+import xhtml2pdf.pisa as pisa
+import io
+from django.views.generic.base import View
+
+
+class Render:
+    @staticmethod
+    def render(path: str, params: dict, filename: str):
+        template = get_template(path)
+        html = template.render(params)
+        response = io.BytesIO()
+        pdf = pisa.pisaDocument(
+            io.BytesIO(html.encode("UTF-8")), response)
+        if not pdf.err:
+            response = HttpResponse(
+                response.getvalue(), content_type="application/pdf")
+            response['Content-Disposition'] = 'attachment;filename=%s.pdf' % filename
+            return response
+        else:
+            return HttpResponse("Error Rendering PDF", status=400)
+
+
+class RelatorioCliente(View):
+
+    def get(self, request):
+        clientes = Pessoa.objects.all()
+        params = {
+            'clientes': clientes,
+            'request': request,
+        }
+        return Render.render('core/cliente-relatorio.html', params, 'Clientes')
+
+
+class RelatorioVeiculo(View):
+
+    def get(self, request):
+        veiculos = Veiculo.objects.all()
+        params = {
+            'veiculos': veiculos,
+            'request': request,
+        }
+        return Render.render('core/veiculo-relatorio.html', params, 'Veiculos')
+
+
+class RelatorioMensalista(View):
+    
+    def get(self, request):
+        mensalistas = Mensalista.objects.all()
+        params = {
+            'mensalistas': mensalista,
+            'request': request,
+        }
+        return Render.render('core/mensalista-relatorio.html', params, 'Mensalistas')
+
+
+class RelatorioMovRot(View):
+    
+    def get(self, request):
+        movrot = MovRotativo.objects.all()
+        params = {
+            'movrot': movrot,
+            'request': request
+        }
+        return Render.render('core/movrot-relatorio.html', params, 'MovRotativo')
+
+
+class RelatorioMovMensal(View):
+    
+    def get(self, request):
+        movmensal = MovMensalista.objects.all()
+        params = {
+            'movmensal': movmensal,
+            'request': request,
+        }
+        return Render.render('core/movmensal-relatorio.html', params, 'MovMes')

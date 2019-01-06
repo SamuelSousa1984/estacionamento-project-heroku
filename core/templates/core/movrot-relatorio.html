@@ -1,0 +1,20 @@
+<table class="table table-light">
+    <tr>
+        <td>id</td>
+        <td>Veiculo</td>
+        <td>Entrada</td>
+        <td>Saida</td>
+        <td>Valor/Hora</td>
+        <td>Pago</td>
+    </tr>
+    {% for rot in movrot %}
+        <tr>
+            <td>{{ rot.id }}</td>
+            <td>{{ rot.veiculo }}</td>
+            <td>{{ rot.checkin }}</td>
+            <td>{{ rot.checkout }}</td>
+            <td>{{ rot.valor_hora }}</td>
+            <td>{{ rot.pago }}</td>
+        </tr>
+    {% endfor %}
+</table>
